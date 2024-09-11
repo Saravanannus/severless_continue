@@ -10,7 +10,8 @@ The serverless.yml file is the heart of your Serverless application. It specifie
 
 ### Here’s an annotated example:
 
-yaml
+### yaml
+
      service: my-serverless-app  # Name of the service (can be anything)
 
 #### provider:
@@ -21,29 +22,26 @@ yaml
    
     region: us-east-1  # AWS region where the service will be deployed
 
-##### functions:
+#### functions:
 
      helloWorld:  # Name of the function
    
-          handler: handler.helloWorld  # Path to the function code (handler file and function name)
-     
-          events:
+     handler: handler.helloWorld  # Path to the function code (handler file and function name)
+     events:
+       - http:
+          path: hello  # HTTP path for triggering the function (e.g., /hello)
           
-              - http:
-     
-                   path: hello  # HTTP path for triggering the function (e.g., /hello)
-     
-                   method: get  # HTTP method (GET, POST, etc.)
+          method: get  # HTTP method (GET, POST, etc.)
           
 #### resources:
 
-   Resources:  # Define additional resources (e.g., DynamoDB tables, S3 buckets, etc.)
+    Resources: # Define additional resources (e.g., DynamoDB tables, S3 buckets, etc.)
    
-     MyTable:  # A sample DynamoDB table
+    MyTable:  # A sample DynamoDB table
      
         Type: AWS::DynamoDB::Table
         
-   Properties:
+    Properties:
    
       TableName: MyTable
       
@@ -62,39 +60,39 @@ yaml
       BillingMode: PAY_PER_REQUEST
         
 ## Breakdown:
-- #### provider: Specifies the cloud provider and runtime.
 
-- #### functions: Defines the individual serverless functions. Each function has a handler (a reference to a function inside a code file) and events (triggers such as HTTP requests, S3 events, etc.).
+- #### provider:  Specifies the cloud provider and runtime.
 
-- #### resources: Allows you to define additional cloud resources like databases or storage services.
+- #### functions:  Defines the individual serverless functions. Each function has a handler (a reference to a function inside a code file) and events (triggers such as HTTP requests, S3 events, etc.).
+
+- #### resources:  Allows you to define additional cloud resources like databases or storage services.
   
 ### 2. handler.js (Function Code)
 
 This is where the actual logic for the serverless function is defined. Here's an example in Node.js:
 
 
-// handler.js
+  // handler.js
 
-// This function handles an incoming HTTP request to the /hello endpoint
+  // This function handles an incoming HTTP request to the /hello endpoint
 
-        module.exports.helloWorld = async (event) => {
+  module.exports.helloWorld = async (event) => {
 
   // The response body is sent back as a JSON object
   return {
   
-      statusCode: 200,  // HTTP response status
+  statusCode: 200,  // HTTP response status
 
-      body: JSON.stringify({  // HTTP response body (JSON string)
+  body: JSON.stringify({  // HTTP response body (JSON string)
 
-      message: "Hello, welcome to Serverless!",  // Custom message in the response
+   message: "Hello, welcome to Serverless!",  // Custom message in the response
 
-      input: event,  // Echoes the event data (request details)
-
-    }),
-
-  };
+  input: event,  // Echoes the event data (request details)
   
-};
+        }),
+      };
+    };
+
 
 ### Breakdown:
 
@@ -112,8 +110,8 @@ This is where the actual logic for the serverless function is defined. Here's an
       
 ### 2. Create a New Serverless Service:
 
-sls create --template aws-nodejs --path my-serverless-app
-cd my-serverless-app
+    sls create --template aws-nodejs --path my-serverless-app
+    cd my-serverless-app
 
 ### 3. Edit serverless.yml and handler.js:
 
@@ -121,21 +119,21 @@ cd my-serverless-app
 
 ### 4. Deploy the Service: Deploy your service to the cloud with the following command:
 
-sls deploy
+    sls deploy
 
 This deploys the entire stack, including your functions and any cloud resources (e.g., DynamoDB).
 
 ### 5. Test the Function: You can invoke the function directly using the CLI:
 
-sls invoke --function helloWorld
+    sls invoke --function helloWorld
 
 Or, you can access it via its HTTP endpoint:
 
-sls info
+    sls info
+
 This will give you the API endpoint, e.g., https://randomstring.execute-api.us-east-1.amazonaws.com/dev/hello.
 
 # Full Example Directory Structure
-
 
 my-serverless-app/
 
