@@ -1,6 +1,6 @@
 # ce6-sara-serverless02
 
-Serverless with lambda function
+### Serverless with lambda function
 
 1. Create repository as public in GitHub
 2. Clone the repository
@@ -10,7 +10,7 @@ Serverless with lambda function
 6. Update serverless.yml and include
 
 ```
-plugins: -serverless-offline
+ plugins: -serverless-offline
 ```
 
 7. Run 
