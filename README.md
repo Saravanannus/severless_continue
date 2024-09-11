@@ -1,4 +1,4 @@
-### When using the Serverless Framework (SLS), the core of your project includes a configuration file (serverless.yml) and code files for your functions. Here's a detailed description with examples of both the configuration and the function code.
+ When using the Serverless Framework (SLS), the core of your project includes a configuration file (serverless.yml) and code files for your functions. Here's a detailed description with examples of both the configuration and the function code.
 
 ### 1. serverless.yml (Configuration File)
 The serverless.yml file is the heart of your Serverless application. It specifies:
