@@ -1,5 +1,47 @@
 # ce6-sara-serverless02
 
+# Basic Commands:
+### 1. sls deploy
+Deploy your entire serverless application to the cloud.
+
+    sls deploy
+
+### 2. sls deploy function --function <functionName>
+Deploy a single function instead of the entire stack.
+
+
+    sls deploy function --function myFunction
+### 3. sls invoke --function <functionName>
+Invoke a deployed function manually.
+
+
+   sls invoke --function myFunction
+### 4. sls invoke local --function <functionName>
+Invoke a function locally.
+
+    sls invoke local --function myFunction
+### 5. sls remove
+Remove the entire serverless service from the cloud.
+
+    sls remove
+### 6. sls logs --function <functionName>
+View logs for a specific function.
+
+    sls logs --function myFunction
+# Configuration-Related Commands:
+### 1. sls info
+Show information about the deployed service.
+
+    sls info
+### 2. sls config credentials --provider aws --key <key> --secret <secret>
+Configure AWS credentials for Serverless Framework.
+
+    sls config credentials --provider aws --key <yourKey> --secret <yourSecret>
+
+These commands help manage serverless deployments efficiently.
+
+
+
 ### Serverless with lambda function
 
 1. Create repository as public in GitHub
