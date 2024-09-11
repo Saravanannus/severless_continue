@@ -14,31 +14,53 @@ yaml
      service: my-serverless-app  # Name of the service (can be anything)
 
 #### provider:
-  name: aws  # Cloud provider you're using, here AWS
-  runtime: nodejs18.x  # Runtime environment for the function, here Node.js v18.x
-  region: us-east-1  # AWS region where the service will be deployed
 
-#### functions:
-  helloWorld:  # Name of the function
-    handler: handler.helloWorld  # Path to the function code (handler file and function name)
-    events:
-      - http:
-          path: hello  # HTTP path for triggering the function (e.g., /hello)
-          method: get  # HTTP method (GET, POST, etc.)
+    name: aws  # Cloud provider you're using, here AWS
+   
+    runtime: nodejs18.x  # Runtime environment for the function, here Node.js v18.x
+   
+    region: us-east-1  # AWS region where the service will be deployed
+
+##### functions:
+
+     helloWorld:  # Name of the function
+   
+          handler: handler.helloWorld  # Path to the function code (handler file and function name)
+     
+          events:
+          
+              - http:
+     
+                   path: hello  # HTTP path for triggering the function (e.g., /hello)
+     
+                   method: get  # HTTP method (GET, POST, etc.)
           
 #### resources:
-  Resources:  # Define additional resources (e.g., DynamoDB tables, S3 buckets, etc.)
-    MyTable:  # A sample DynamoDB table
-      Type: AWS::DynamoDB::Table
-      Properties:
-        TableName: MyTable
-        AttributeDefinitions:
-          - AttributeName: id
-            AttributeType: S
-        KeySchema:
-          - AttributeName: id
-            KeyType: HASH
-        BillingMode: PAY_PER_REQUEST
+
+   Resources:  # Define additional resources (e.g., DynamoDB tables, S3 buckets, etc.)
+   
+     MyTable:  # A sample DynamoDB table
+     
+        Type: AWS::DynamoDB::Table
+        
+   Properties:
+   
+      TableName: MyTable
+      
+      AttributeDefinitions:
+      
+         - AttributeName: id
+         
+           AttributeType: S
+           
+      KeySchema:
+      
+        - AttributeName: id
+        
+          KeyType: HASH
+          
+      BillingMode: PAY_PER_REQUEST
+        
 ## Breakdown:
 - #### provider: Specifies the cloud provider and runtime.
 - #### functions: Defines the individual serverless functions. Each function has a handler (a reference to a function inside a code file) and events (triggers such as HTTP requests, S3 events, etc.).
@@ -52,13 +74,13 @@ This is where the actual logic for the serverless function is defined. Here's an
 
 // This function handles an incoming HTTP request to the /hello endpoint
 
-module.exports.helloWorld = async (event) => {
+        module.exports.helloWorld = async (event) => {
 
   // The response body is sent back as a JSON object
   return {
   
-    statusCode: 200,  // HTTP response status
-    body: JSON.stringify({  // HTTP response body (JSON string)
+      statusCode: 200,  // HTTP response status
+      body: JSON.stringify({  // HTTP response body (JSON string)
       message: "Hello, welcome to Serverless!",  // Custom message in the response
       input: event,  // Echoes the event data (request details)
     }),
@@ -68,6 +90,7 @@ module.exports.helloWorld = async (event) => {
 };
 
 ### Breakdown:
+
 - #### Function definition: The helloWorld function is an asynchronous function (async) that handles the incoming event (e.g., an HTTP request).
 
 - #### Event parameter: The event object contains data passed by the triggering source (HTTP request in this case).
