@@ -63,10 +63,13 @@ yaml
         
 ## Breakdown:
 - #### provider: Specifies the cloud provider and runtime.
+
 - #### functions: Defines the individual serverless functions. Each function has a handler (a reference to a function inside a code file) and events (triggers such as HTTP requests, S3 events, etc.).
+
 - #### resources: Allows you to define additional cloud resources like databases or storage services.
   
 ### 2. handler.js (Function Code)
+
 This is where the actual logic for the serverless function is defined. Here's an example in Node.js:
 
 
@@ -80,13 +83,15 @@ This is where the actual logic for the serverless function is defined. Here's an
   return {
   
       statusCode: 200,  // HTTP response status
+
       body: JSON.stringify({  // HTTP response body (JSON string)
+
       message: "Hello, welcome to Serverless!",  // Custom message in the response
+
       input: event,  // Echoes the event data (request details)
+
     }),
-    
   };
-  
 };
 
 ### Breakdown:
@@ -146,7 +151,9 @@ my-serverless-app/
 # Explanation:
 
 - serverless.yml: Manages the configuration, such as cloud provider, functions, and resources.
+
 - handler.js: Contains the logic for your serverless functions.
+
 - Other Files: package.json and node_modules if your project uses npm packages.
 
 - This workflow helps create, deploy, and manage serverless functions using the Serverless Framework, providing flexibility and ease of use in handling cloud-native applications.
