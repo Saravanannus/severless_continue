@@ -91,7 +91,9 @@ This is where the actual logic for the serverless function is defined. Here's an
       input: event,  // Echoes the event data (request details)
 
     }),
+
   };
+  
 };
 
 ### Breakdown:
