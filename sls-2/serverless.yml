@@ -11,7 +11,7 @@ provider:
   runtime: nodejs20.x # Runtime environment for the function, here Node.js v20.x
 
 functions:
-  hello: # Name of the function
+  hello: # This is the name of the function within your service. The function name (hello) can be anything you choose and will be referenced in deployment and logs.
     handler: handler.hello # Path to the function code (handler file and function name)
     events:
       - httpApi:
