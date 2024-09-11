@@ -95,7 +95,7 @@ Taken from URL, https://www.serverless.com/framework/docs/providers/aws/events/s
 
 #### 2. hello:
 
-This is the name of the function within your service. The function name (hello) can be anything you choose and will be referenced in deployment and logs.
+- This is the name of the function within your service. The function name (hello) can be anything you choose and will be referenced in deployment and logs.
 
 #### 3. handler: handler.hello
 
